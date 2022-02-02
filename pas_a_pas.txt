@@ -1,0 +1,54 @@
+————— ETAPES PROJET DEAL —————
+
+https://us02web.zoom.us/j/9980582233?pwd=RlJMRUtTYWQ5N0diU3pmem5zcnFUdz09
+
+
+Etape 1 : Création de la BDD
+	- Creation des tables, champs, etc (via phpmyadmin) 
+
+Etape 2 : Création de l’arborescence de votre projet
+	- Organisation des dossiers, la découpe des fichiers
+
+Etape 3 : Création de l’espace membre 
+	- 3.1 : Inscription (pas de doublons dans la bdd , password crypté (avec password_hash)
+	- 3.2 : Connexion 
+	- 3.3 : Page profil 
+
+Etape 4 : Création de la page BackOffice / Gestion des membres
+	- 4.1 : Formulaire d’ajout de membre 
+	- 4.2 : Affichage de tous les membres (avec des boutons voir/modifier/supprimer)
+	- 4.3 : Suppression 
+	- 4.4 : Modification 
+
+Etape 5 : Création de la page BackOffice / Gestion des categories 
+	- 5.1 : Formulaire d’ajout de catégorie
+	- 5.2 : Affichage des categories (avec des boutons voir/modifier/supprimer)
+	- 5.3 : Suppression
+	- 5.4 : Modification 
+
+Etape 6 : Création de la page BackOffice / Gestion des avis
+	- 6.1 : Affichage des avis 
+	- 6.2 : Suppression des avis
+	- 6.3 : Modification des avis 
+
+Etape 7 : Création de la page BackOffice / Gestion des annonces
+	- 7.1 : Affichage des annonces 
+	- 7.2 : Suppression des annonces
+	- 7.3 : Modification des annonces
+
+Etape 8 : Création de la page FrontOffice / Accueil
+	- 8.1 : Affichage du catalogue des annonces 
+	- 8.2 : Colonne de recherche et filtres, etc…
+
+Etape 9 :  Création de la page FrontOffice / Accueil 
+	- 9.1 : Affichage d’une annonce 
+	- 9.2 : Formulaire d’ajout d’avis et note
+	- 9.3 : Enregistrement des commandes
+
+Etape 10 : Création de la page back office / Statistique
+	- 10.1 : Libre….
+
+Etape 11 : Création des pages annexes
+	11.1 : Contact, etc…
+
+Etape 12 : Amélioration graphique 
