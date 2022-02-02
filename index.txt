@@ -1,0 +1,59 @@
+------INSERER DANS LA BDD--------
+<?php
+
+include("connect.php");
+
+
+if($_POST){
+
+        $pseudo = $_POST["pseudo"]; 
+        $mdp = $_POST["password"];
+        $nom = $_POST["nom"]; 
+        $prenom = $_POST["prenom"]; 
+        $tel = $_POST["telephone"]; 
+        $email = $_POST["email"]; 
+        $civ = $_POST["civilite"];
+
+
+    };
+
+$pdo->query("INSERT INTO membre (pseudo, mdp, nom, prenom, telephone, email, civilite )VALUES( 
+'$pseudo', '$mdp', '$nom', '$prenom', '$tel', '$email', '$civ')");
+
+?> 
+
+-------UPDATE------------------------
+
+<?php 
+
+include ("connect.php");
+session_start();
+
+$pseudo = $_SESSION["pseudo"];
+$mdp = $_SESSION["password"];
+$nom = $_SESSION["nom"];
+$prenom = $_SESSION["prenom"];
+$tel = $_SESSION["telephone"];
+$email = $_SESSION["email"];
+$civ = $_SESSION["civilite"];
+
+if ($_POST) {
+    $mdp = $_POST["password"];
+    $newmdp= $_POST["password"];
+    $newmdp2 = $_POST["password2"];
+
+    if ($mdp == $newmdp) {
+
+        if ($newmdp == $newmdp2) {
+
+            $pass = md5($newmdp);
+            $pdo->query("UPDATE users SET password='$pass' WHERE id='$pseudo'");
+
+            header('Location: index.php');
+
+        }
+
+    }
+}
+
+?>

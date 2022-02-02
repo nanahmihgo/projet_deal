@@ -1,0 +1,52 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url(../images/city.jpg)no-repeat;background-size:cover;
+}
+
+.container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2{
+    
+    color: orange;
+    text-transform: uppercase;
+    
+}
+label{
+    color: orange;
+    text-transform: uppercase;
+}
+
+input{
+    width: 50%;
+    /* height: 80%; */
+    font-style: italic;
+    text-align: center;
+}
+
+option{
+    width: 50%;
+}
+
+button{
+    display: inline-block;
+    background-color: #9b97a0;
+    border-radius: 10px;
+    border: 4px double orange;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    cursor: pointer;
+    margin: 20px;
+}
