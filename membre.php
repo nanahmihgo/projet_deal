@@ -1,13 +1,22 @@
 <?php
 
-include("header.php");
 include("connect.php");
+include("header.php");
+
+// session_start();
+
+// if(!$_SESSION["password"]){
+    
+//     header('Location: index.php');
+// }
 
 
 //********************* */ i    INSERER DONNEES USERS DANS LA BDD ******************
 ?>
+<main>
 
-    <form id= "add" action="" method = "post">
+    <h2>Inscription</h2>
+    <form class="connectForm" action="" method = "post">
 
         <input type="text" name="pseudo" placeholder="Votre pseudo">
         <input type="password" name="mdp" placeholder="Votre mot de passe">
@@ -24,6 +33,7 @@ include("connect.php");
         <input id= "add" type="submit" value="Envoyer">
 
     </form>
+</main>
 
 <?php
 
@@ -47,5 +57,7 @@ if(isset($_POST["pseudo"]) && isset($_POST["mdp"]) && isset($_POST["mdp2"]) && i
         VALUES ('$pseudo', '$pass', '$nom', '$prenom', '$tel', '$email', '$civilite')");
 
 }
+
+include('footer.php');
 
 ?>

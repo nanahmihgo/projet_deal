@@ -1,3 +1,10 @@
+<?php
+
+    session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,10 +18,27 @@
     </head>
 
     <body>
+
+
         <header>
             <h1>DEAL</h1>
             <nav>
-                <a href="connexion.php">Connexion</a>
-                <a href="create.php">Inscription</a>
+
+                <?php
+
+                    if(isset($_SESSION['pseudo']))
+                    {
+                        echo '<a href="index.php">Accueil</a>';
+                        echo '<a href="deconnexion.php">Se déconnecter</a>';
+                    }
+                    else
+                    {
+                        // echo '<a href="index.php">Accueil</a>';
+                        echo '<a href="connexion.php">Connecter</a>';
+                        echo '<a href="inscription.php">Inscription</a>';
+                    }
+
+                ?>
+
             </nav>
         </header>

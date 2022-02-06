@@ -1,7 +1,26 @@
 <?php
 
-include("header.php");
-include("connect.php");
+    include("header.php");
+    include("connect.php");
+
+    if(!$_SESSION["statut"]==1)
+    {
+        header('Location: index.php');
+        exit();
+}
+
+    function show($variable): void {
+        $html = '<pre>';
+        $html .= print_r($variable, true);
+        $html .= '</pre><br><br>';
+
+        echo $html;
+}
+
+
+    $resultMembre = $pdo->query("SELECT id_membre FROM membre");
+    $resultImg = $pdo->query("SELECT id_photo FROM photo");
+    $resultCat = $pdo->query("SELECT id_categorie FROM categorie");
 
 ?>
 
@@ -47,6 +66,15 @@ include("connect.php");
             <label for="pays">Pays:</label>
             <input type="text" name="pays" class="pays">
         </div>
+        <select name="categorie" id="categorie">
+            <option value="">Toutes les catégories</option>
+            <?php 
+            $results = $pdo->query("SELECT * FROM categorie");
+            while($item = $results->fetch()) {
+                echo "<option value=".  $item["id_categorie"] . ">" .  $item["titre"] ."</option>";
+            }
+            ?>
+        </select>
 
         <input id= "add" type="submit" value="Envoyer">
 
@@ -56,11 +84,11 @@ include("connect.php");
 
 <?php
 
-// if(isset($_POST["titre"]) && isset($_POST["description_courte"]) && isset($_POST["description_longue"]) && isset($_POST["prix"]) && isset($_FILES["photo"]) && isset($_POST["pays"]) && isset($_POST["ville"]) && isset($_POST["adresse"]) && isset($_POST["cp"]) && isset($_POST["membre_id"])&& isset($_POST["photo_id"]) && isset($_POST["categorie_id"])){
 
 
-if($_POST){
- 
+if(isset($_POST["titre"]) && isset($_POST["description_courte"]) && isset($_POST["description_longue"]) && isset($_POST["prix"]) && isset($_FILES["photo"]) && isset($_POST["pays"]) && isset($_POST["ville"]) && isset($_POST["adresse"]) && isset($_POST["cp"])) 
+
+{
     $titre = $_POST["titre"];
     $descC = $_POST["description_courte"];
     $descL = $_POST["description_longue"];
@@ -70,15 +98,16 @@ if($_POST){
     $ville = $_POST["ville"];
     $adress = $_POST["adresse"];
     $cp = $_POST["cp"];
-
-    $resultMembre = $pdo->query("SELECT id_membre FROM membre");
-    $resultImg = $pdo->query("SELECT id_photo FROM photo");
-    $resultCat = $pdo->query("SELECT id_categorie FROM categorie");
     
-    $pdo->query("INSERT INTO annonce (titre, description_courte, description_longue, prix, photo, pays, ville, adresse, cp, membre_id, photo_id, categorie_id) 
-    VALUES ('$titre', '$descC', '$descL', '$prix', '$img', '$pays', '$ville', '$adress', '$cp', '$resultMembre', '$resultImg', '$resultCat')");
+    
+    $pdo->query("INSERT INTO annonce (titre, description_courte, description_longue, prix, photo, pays, ville, adresse, cp) 
+    VALUES ('$titre', '$descC', '$descL', '$prix', '$img', '$pays', '$ville', '$adress', '$cp')");
+
 }
-  
-include("footer.php");
+
+show($resultCat);
+
+
+// include("footer.php");
 
 ?>
